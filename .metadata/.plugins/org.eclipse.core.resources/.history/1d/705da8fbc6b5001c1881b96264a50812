@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="537316ee-317e-418c-a7c4-f382a0befb5e" >
+		<db:my-sql-connection host="mudb.learn.mulesoft.com" port="3306" user="mule" password="mule" database="training" />
+	</db:config>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="5af13e32-743a-4845-ac99-ea833660c4db" basePath="/flights" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<db:config name="Database_Config1" doc:name="Database Config" doc:id="449714cc-10ba-453f-9a03-af7c1cfca816" >
+		<db:my-sql-connection host="mudb.learn.mulesoft.com" port="3306" user="mule" password="mule" database="training" />
+	</db:config>
+	<flow name="dw-tutorial4-flights-wsFlow" doc:id="bdf9bb65-0a0e-4cfa-8f48-61e7e9ee19a8" >
+		<http:listener doc:name="Listener" doc:id="bace8449-4e19-42f1-b61b-28cdaef6ce20" path="/flights" config-ref="HTTP_Listener_config"/>
+		<db:select doc:id="b6b4f274-ff5d-4735-ac50-4b8604064753" doc:name="Select" config-ref="Database_Config1">
+			<db:sql ><![CDATA[SELECT * FROM american]]></db:sql>
+		</db:select>
+	</flow>
+</mule>

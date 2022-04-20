@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="b30bffeb-785b-4263-bf6e-50459ae94bdb" basePath="/flights" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="dw-tutorial4-flights-wsFlow" doc:id="bdf9bb65-0a0e-4cfa-8f48-61e7e9ee19a8" >
+		<http:listener doc:name="Listener" doc:id="bace8449-4e19-42f1-b61b-28cdaef6ce20" config-ref="HTTP_Listener_config" path="/flight"/>
+	</flow>
+</mule>
