@@ -9,7 +9,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="d01258b5-210d-43f7-bc07-a91efce85e57" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
-	<db:config name="Database_Config" doc:name="Database Config" doc:id="b4791532-8a63-4a20-b5df-5419effa8147" >
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="f6ecad98-2cc4-4413-bf5a-1c914fe431b0" >
 		<db:my-sql-connection host="mudb.learn.mulesoft.com" port="3306" user="mule" password="mule" database="training" />
 	</db:config>
 	<flow name="dw-tutorial4-flights-wsFlow" doc:id="bdf9bb65-0a0e-4cfa-8f48-61e7e9ee19a8" >
